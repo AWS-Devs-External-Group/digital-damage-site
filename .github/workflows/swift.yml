@@ -1,0 +1,30 @@
+# This workflow will build a Swift project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
+
+name: Swift
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v
+            - name: "Setup Aliyun CLI" Action for GitHub Actions
+  # You may pin to the exact commit or the version.
+  # uses: aliyun/setup-aliyun-cli-action@09a5f86915bb556e27bf050e9a5e339aeb073df5
+  uses: aliyun/setup-aliyun-cli-action@v1
+  with:
+    # The version of Aliyun CLI
+    version: # optional, default is latest
+          
